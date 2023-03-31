@@ -1,0 +1,7 @@
+<div class="image__container">
+    <div class="card" *ngFor="let card of cards; let i = index">
+        <img *ngIf="!card.isClicked && !card.isChecked" (click)="check(card)" src="{{ imageDefault.img }}" class="default" alt="planet image">
+        <img *ngIf="card.isClicked" src="{{ card.img }}" class="planet" alt="planet image">
+        <img *ngIf="card.isChecked" src="{{ imageSuccess.img }}" class="success" alt="success image">
+    </div>
+</div>
