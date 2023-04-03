@@ -1,7 +1,11 @@
 <div class="image__container">
-    <div class="card" *ngFor="let card of cards; let i = index">
-        <img *ngIf="!card.isClicked && !card.isChecked" (click)="check(card)" src="{{ imageDefault.img }}" class="default" alt="planet image">
-        <img *ngIf="card.isClicked" src="{{ card.img }}" class="planet" alt="planet image">
+    <div class="card" *ngFor="let card of cards; let i = index" (click)="check(card)">
+        <img *ngIf="!card.isClicked && !card.isChecked" src="{{ imageDefault.img }}" class="default" alt="planet image">
+        <img *ngIf="card.isClicked && !card.isChecked" src="{{ card.img }}" class="planet" alt="planet image">
         <img *ngIf="card.isChecked" src="{{ imageSuccess.img }}" class="success" alt="success image">
     </div>
+</div>
+<div *ngIf="score == 6" class="winner__container">
+    <h1 class="winner">Has ganado!!!</h1>
+    <h3>Nº de intentos = {{ attempts }}</h3>
 </div>
